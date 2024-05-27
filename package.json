@@ -9,6 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "font-awesome": "^4.7.0",
     "md-editor-v3": "^4.15.6",
     "vue": "^3.3.4",
     "vue-router": "^4.3.2"
