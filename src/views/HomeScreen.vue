@@ -1,5 +1,6 @@
 <script setup>
 import NavNote from "../components/NavNote.vue";
+import MessageApp from "../components/MessageApp.vue";
 import { ref } from "vue";
 
 const notes = ref(JSON.parse(localStorage.getItem("notes")) || []);
@@ -10,7 +11,18 @@ const note = ref({
   date: "",
 });
 
+const show = ref(false);
+const mensaje = ref({
+  title: "",
+  text: "",
+});
+
 const addNotes = (id, date) => {
+  show.value = true;
+  mensaje.value = {
+    title: "Exito!",
+    text: "Nota guardada",
+  };
   if (!id && !date) {
     id = new Date().getTime();
     date = new Date();
@@ -21,8 +33,11 @@ const addNotes = (id, date) => {
     notes.value[index].text = note.value.text;
   }
 
-  clearNote();
-  localStorage.setItem("notes", JSON.stringify(notes.value));
+  setTimeout(() => {
+    show.value = false;
+    clearNote();
+    localStorage.setItem("notes", JSON.stringify(notes.value));
+  }, 2000);
 };
 
 const readNote = (item) => {
@@ -43,9 +58,20 @@ const clearNote = () => {
 };
 
 const deleteNote = (id) => {
+  mensaje.value = {
+    title: "Listo!",
+    text: "Nota Eliminada",
+  };
+
+  show.value = true;
+
   notes.value = notes.value.filter((item) => item.id !== id);
   localStorage.setItem("notes", JSON.stringify(notes.value));
-  clearNote();
+
+  setTimeout(() => {
+    show.value = false;
+    clearNote();
+  }, 2000);
 };
 </script>
 <template>
@@ -81,6 +107,22 @@ const deleteNote = (id) => {
         Guardar
       </button>
     </div>
+    <Transition>
+      <div v-if="show" class="fixed w-full px-3 overlay">
+        <MessageApp :mensaje="mensaje" />
+      </div>
+    </Transition>
   </div>
 </template>
-<style scope></style>
+<style scope>
+/* we will explain what these classes do next! */
+.v-enter-active,
+.v-leave-active {
+  transition: opacity 0.5s ease;
+}
+
+.v-enter-from,
+.v-leave-to {
+  opacity: 0;
+}
+</style>

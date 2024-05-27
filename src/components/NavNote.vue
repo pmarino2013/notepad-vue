@@ -27,7 +27,7 @@ const props = defineProps({
           class="flex-auto mb-2 p-2 bg-gray-200 rounded-l-lg cursor-pointer hover:bg-gray-300"
         >
           <!-- <span>Nota {{ index + 1 }}</span> -->
-          <span>{{ item.text.substring(0, 10) }}...</span>
+          <span>{{ item.text.substring(0, 20) }}...</span>
         </div>
         <div
           class="mb-2 p-2 rounded-r-lg cursor-pointer hover:bg-gray-300 bg-red-500 text-white font-bold"
