@@ -92,7 +92,7 @@ const deleteNote = (id) => {
       <h2 class="text-xl font-semibold mb-4">Contenido de la Nota</h2>
       <textarea
         id="textNote"
-        class="w-full h-96 p-4 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-green-500"
+        class="w-full h-96 p-4 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-green-500 text-xl"
         placeholder="Escribe tu nota aquí..."
         v-model="note.text"
       ></textarea>
@@ -104,7 +104,10 @@ const deleteNote = (id) => {
           !note.text && 'disabled:bg-gray-400 disabled:cursor-not-allowed'
         "
       >
-        Guardar
+        <div class="flex justify-center items-center gap-2">
+          <i class="fa fa-floppy-o fa-2x" aria-hidden="true"></i>
+          <span class="text-xl">Guardar</span>
+        </div>
       </button>
     </div>
     <Transition>
