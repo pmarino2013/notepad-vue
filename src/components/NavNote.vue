@@ -9,7 +9,7 @@ const props = defineProps({
 // const notes = ref(JSON.parse(localStorage.getItem("notes")) || []);
 </script>
 <template>
-  <div class="md:w-1/4 bg-white shadow-lg rounded-lg p-4 mb-4 md:mb-0">
+  <div class="lg:w-1/4 bg-white shadow-lg rounded-lg p-4 mb-4 lg:mb-0">
     <button
       class="w-full bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded mb-3"
       @click="clearNote"
@@ -34,7 +34,7 @@ const props = defineProps({
           ><span v-else class="text-xl">{{ item.text }}</span>
         </div>
         <div
-          class="mb-2 px-2 py-3 rounded-r-lg cursor-pointer hover:bg-gray-300 bg-red-500 text-white font-bold"
+          class="mb-2 px-2 py-3 rounded-r-lg cursor-pointer hover:bg-red-700 bg-red-500 text-white font-bold"
           @click="deleteNote(item.id)"
         >
           <i class="fa fa-trash-o fa-2x" aria-hidden="true"></i>

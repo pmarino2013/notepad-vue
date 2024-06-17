@@ -80,7 +80,7 @@ const deleteNote = (id) => {
       <h1 class="text-2xl font-bold">Bloc de Notas</h1>
     </div>
   </nav>
-  <div class="container mx-auto mt-4 h-auto flex flex-col md:flex-row">
+  <div class="container mx-auto mt-4 h-auto flex flex-col lg:flex-row gap-3">
     <NavNote
       :notes="notes"
       :readNote="readNote"
@@ -88,8 +88,10 @@ const deleteNote = (id) => {
       :deleteNote="deleteNote"
     />
 
-    <div class="md:w-3/4 bg-white shadow-lg rounded-lg p-4">
-      <h2 class="text-xl font-semibold mb-4">Contenido de la Nota</h2>
+    <div class="lg:w-3/4 bg-white shadow-lg rounded-lg p-4">
+      <h2 class="text-3xl font-semibold mb-4">
+        <i class="fa fa-pencil" aria-hidden="true"></i>Nota
+      </h2>
       <textarea
         id="textNote"
         class="w-full h-96 p-4 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-green-500 text-xl"

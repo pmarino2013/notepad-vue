@@ -13,8 +13,9 @@ const props = defineProps({
         : 'bg-red-100 text-red-700 border-red-400'
     "
   >
-    <strong class="font-bold">{{ mensaje.title }}</strong>
-    <span class="block sm:inline">{{ mensaje.text }}</span>
+    <strong class="font-bold text-3xl">{{ mensaje.title }}</strong
+    ><br />
+    <span class="block sm:inline text-xl">{{ mensaje.text }}</span>
     <span class="absolute top-0 bottom-0 right-0 px-4 py-3">
       <svg
         class="fill-current h-6 w-6"
